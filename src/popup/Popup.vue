@@ -1,16 +1,30 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { sendRequest } from '../content'
 
-const crx = ref('create-chrome-ext')
+async function getAnswer() {
+  const answer = await sendRequest()
+
+  showAnswer(answer)
+}
+
+function showAnswer(answer: string) {
+  const area = document.createElement('textarea')
+  area.value = answer
+  area.style.position = 'fixed'
+  area.style.backgroundColor = '#fff'
+  area.style.height = '200px'
+  area.style.width = '200px'
+}
 </script>
 
 <template>
   <main>
     <h3>Popup Page!</h3>
-
-    <h6>v 0.0.0</h6>
-
-    <a href="https://www.npmjs.com/package/create-chrome-ext" target="_blank">Power by {{ crx }}</a>
+    <button @click="getAnswer">sendRequest</button>
+    <div>
+      <a href="https://github.com/syntax-dot" target="_blank">Created by syntax v1.0.0</a>
+    </div>
   </main>
 </template>
 
