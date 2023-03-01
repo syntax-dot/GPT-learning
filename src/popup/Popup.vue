@@ -12,6 +12,8 @@ function showAnswer(answer: string) {
   const area = document.createElement('textarea')
   area.value = answer
   area.style.position = 'fixed'
+  area.style.left = '0'
+  area.style.top = '0'
   area.style.backgroundColor = '#fff'
   area.style.height = '200px'
   area.style.width = '200px'
